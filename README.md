@@ -1,0 +1,1 @@
+# Module-based frontend SymphonyCMS Ensemble
