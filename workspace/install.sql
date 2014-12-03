@@ -46,10 +46,11 @@ CREATE TABLE`tbl_fields_input` (
   `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA:`tbl_fields_input` ***
 INSERT INTO`tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (7, 10, NULL);
+INSERT INTO`tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (10, 13, NULL);
 
 -- *** STRUCTURE:`tbl_fields_order_entries` ***
 DROP TABLE IF EXISTS`tbl_fields_order_entries`;
@@ -60,10 +61,11 @@ CREATE TABLE`tbl_fields_order_entries` (
   `hide` enum('yes','no') DEFAULT 'no',
   PRIMARY KEY (`id`),
   UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- *** DATA:`tbl_fields_order_entries` ***
 INSERT INTO`tbl_fields_order_entries` (`id`, `field_id`, `force_sort`, `hide`) VALUES (3, 12, 'yes', 'yes');
+INSERT INTO`tbl_fields_order_entries` (`id`, `field_id`, `force_sort`, `hide`) VALUES (5, 15, 'yes', 'yes');
 
 -- *** STRUCTURE:`tbl_fields_select` ***
 DROP TABLE IF EXISTS`tbl_fields_select`;
@@ -132,9 +134,10 @@ CREATE TABLE`tbl_fields_upload` (
   `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA:`tbl_fields_upload` ***
+INSERT INTO`tbl_fields_upload` (`id`, `field_id`, `destination`, `validator`) VALUES (3, 14, '/workspace/uploads/gallery', '/\\.(?:bmp|gif|jpe?g|png)$/i');
 
 -- *** STRUCTURE:`tbl_entries_data_10` ***
 DROP TABLE IF EXISTS`tbl_entries_data_10`;
@@ -196,7 +199,67 @@ INSERT INTO`tbl_entries_data_12` (`id`, `entry_id`, `value`) VALUES (4, 16, 4);
 INSERT INTO`tbl_entries_data_12` (`id`, `entry_id`, `value`) VALUES (5, 15, 5);
 INSERT INTO`tbl_entries_data_12` (`id`, `entry_id`, `value`) VALUES (6, 14, 6);
 
+-- *** STRUCTURE:`tbl_entries_data_13` ***
+DROP TABLE IF EXISTS`tbl_entries_data_13`;
+CREATE TABLE`tbl_entries_data_13` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `entry_id` int(11) unsigned NOT NULL,
+  `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
+  KEY `handle` (`handle`),
+  KEY `value` (`value`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** DATA:`tbl_entries_data_13` ***
+
+-- *** STRUCTURE:`tbl_entries_data_14` ***
+DROP TABLE IF EXISTS`tbl_entries_data_14`;
+CREATE TABLE`tbl_entries_data_14` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `entry_id` int(11) unsigned NOT NULL,
+  `file` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
+  `mimetype` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
+  KEY `file` (`file`),
+  KEY `mimetype` (`mimetype`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** DATA:`tbl_entries_data_14` ***
+INSERT INTO`tbl_entries_data_14` (`id`, `entry_id`, `file`, `size`, `mimetype`, `meta`) VALUES (2, 20, '2014-11-29-13-48-45.jpg', 1382923, 'image/jpeg', 'a:3:{s:8:\"creation\";s:25:\"2014-12-02T17:00:16-02:00\";s:5:\"width\";i:1600;s:6:\"height\";i:1200;}');
+INSERT INTO`tbl_entries_data_14` (`id`, `entry_id`, `file`, `size`, `mimetype`, `meta`) VALUES (3, 21, '2014-11-29-13-58-45.jpg', 1518553, 'image/jpeg', 'a:3:{s:8:\"creation\";s:25:\"2014-12-02T17:00:51-02:00\";s:5:\"width\";i:1600;s:6:\"height\";i:1200;}');
+INSERT INTO`tbl_entries_data_14` (`id`, `entry_id`, `file`, `size`, `mimetype`, `meta`) VALUES (4, 22, '2014-11-29-14-05-57.jpg', 1145288, 'image/jpeg', 'a:3:{s:8:\"creation\";s:25:\"2014-12-02T17:00:58-02:00\";s:5:\"width\";i:1600;s:6:\"height\";i:1200;}');
+INSERT INTO`tbl_entries_data_14` (`id`, `entry_id`, `file`, `size`, `mimetype`, `meta`) VALUES (5, 23, '2014-11-29-14-26-08.jpg', 991943, 'image/jpeg', 'a:3:{s:8:\"creation\";s:25:\"2014-12-02T17:01:04-02:00\";s:5:\"width\";i:1600;s:6:\"height\";i:1200;}');
+INSERT INTO`tbl_entries_data_14` (`id`, `entry_id`, `file`, `size`, `mimetype`, `meta`) VALUES (6, 24, '2014-11-29-17-45-14.jpg', 468324, 'image/jpeg', 'a:3:{s:8:\"creation\";s:25:\"2014-12-02T17:01:25-02:00\";s:5:\"width\";i:1600;s:6:\"height\";i:1200;}');
+
+-- *** STRUCTURE:`tbl_entries_data_15` ***
+DROP TABLE IF EXISTS`tbl_entries_data_15`;
+CREATE TABLE`tbl_entries_data_15` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `entry_id` int(11) unsigned NOT NULL,
+  `value` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
+  KEY `value` (`value`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- *** DATA:`tbl_entries_data_15` ***
+INSERT INTO`tbl_entries_data_15` (`id`, `entry_id`, `value`) VALUES (2, 20, 1);
+INSERT INTO`tbl_entries_data_15` (`id`, `entry_id`, `value`) VALUES (3, 21, 2);
+INSERT INTO`tbl_entries_data_15` (`id`, `entry_id`, `value`) VALUES (4, 22, 3);
+INSERT INTO`tbl_entries_data_15` (`id`, `entry_id`, `value`) VALUES (5, 23, 4);
+INSERT INTO`tbl_entries_data_15` (`id`, `entry_id`, `value`) VALUES (6, 24, 5);
+
 -- *** DATA:`tbl_entries` ***
+INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (24, 4, 1, '2014-12-02 17:01:25', '2014-12-02 19:01:25', '2014-12-02 17:01:25', '2014-12-02 19:01:25');
+INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (23, 4, 1, '2014-12-02 17:01:04', '2014-12-02 19:01:04', '2014-12-02 17:01:04', '2014-12-02 19:01:04');
+INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (22, 4, 1, '2014-12-02 17:00:58', '2014-12-02 19:00:58', '2014-12-02 17:00:58', '2014-12-02 19:00:58');
+INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (21, 4, 1, '2014-12-02 17:00:51', '2014-12-02 19:00:51', '2014-12-02 17:00:51', '2014-12-02 19:00:51');
+INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (20, 4, 1, '2014-12-02 17:00:16', '2014-12-02 19:00:16', '2014-12-02 17:00:29', '2014-12-02 19:00:29');
 INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (19, 3, 1, '2014-12-01 20:01:04', '2014-12-01 22:01:04', '2014-12-01 20:01:04', '2014-12-01 22:01:04');
 INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (18, 3, 1, '2014-12-01 20:00:50', '2014-12-01 22:00:50', '2014-12-01 20:00:50', '2014-12-01 22:00:50');
 INSERT INTO`tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (17, 3, 1, '2014-12-01 20:00:38', '2014-12-01 22:00:38', '2014-12-01 20:00:38', '2014-12-01 22:00:38');
@@ -223,17 +286,21 @@ INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`,
 INSERT INTO`tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (11, 6, '/system/preferences/', 'Save', '__SavePreferences');
 
 -- *** DATA:`tbl_fields` ***
+INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (13, 'Title', 'title', 'input', 4, 'no', 0, 'main', 'yes');
 INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (12, 'Sort order', 'sort-order', 'order_entries', 3, 'no', 2, 'main', 'yes');
 INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (10, 'Title', 'title', 'input', 3, 'yes', 0, 'main', 'yes');
 INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (11, 'Text', 'text', 'textarea', 3, 'yes', 1, 'main', 'no');
+INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (15, 'Sort Order', 'sort-order', 'order_entries', 4, 'no', 2, 'main', 'yes');
+INSERT INTO`tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (14, 'Image', 'image', 'upload', 4, 'yes', 1, 'main', 'yes');
 
 -- *** DATA:`tbl_pages` ***
-INSERT INTO`tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (3, NULL, 'Index', 'index', NULL, NULL, 'faq', NULL, 1);
+INSERT INTO`tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (3, NULL, 'Index', 'index', NULL, NULL, 'faq,gallery', NULL, 1);
 
 -- *** DATA:`tbl_pages_types` ***
 INSERT INTO`tbl_pages_types` (`id`, `page_id`, `type`) VALUES (2, 3, 'index');
 
 -- *** DATA:`tbl_sections` ***
 INSERT INTO`tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (3, 'FAQ', 'faq', 1, 'no', 'yes', 'Collapsible Modules');
+INSERT INTO`tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (4, 'Gallery', 'gallery', 2, 'no', 'yes', 'Slideshow Modules');
 
 -- *** DATA:`tbl_sections_association` ***

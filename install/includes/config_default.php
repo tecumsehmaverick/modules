@@ -99,6 +99,7 @@
 			'section_images_order' => 'desc',
 			'section_faq_sortby' => '12',
 			'section_faq_order' => 'asc',
+			'section_gallery_sortby' => '15',
 		),
 		########
 
