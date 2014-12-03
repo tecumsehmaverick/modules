@@ -32,8 +32,8 @@ API (XML):
 <xsl:import href="../../utilities/ninja.xsl"/>
 
 <xsl:template match="*[section/@handle = 'faq']" mode="collapsible">
-    <module class="collapsible" data-module="collapsible" data-blabla="asas">
-        <h1>Collapsible module [using data from FAQ section]</h1>
+    <h1>Collapsible module [Data from FAQ Section]</h1>
+    <module class="collapsible" data-module="collapsible">
         <dl>
             <xsl:for-each select="entry">
                 <dt>

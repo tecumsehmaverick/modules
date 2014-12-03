@@ -1,1 +1,16 @@
+body {
+	width: 90%;
+	max-width: 60em;
+	margin: 4em auto;
+}
+
+module {
+    display: block;
+
+    img {
+    	max-width: 100%;
+    }
+}
+
 @import '../../../modules/collapsible/styles.scss';
+@import '../../../modules/slideshow/styles.scss';

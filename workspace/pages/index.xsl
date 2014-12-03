@@ -3,6 +3,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="../modules/collapsible/templates.xsl"/>
+<xsl:import href="../modules/slideshow/templates.xsl"/>
 
 <xsl:output method="xml"
 	doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -18,6 +19,9 @@
 			<link rel="stylesheet" href="{$workspace}/assets/dist/css/main.min.css"/>
 		</head>
 		<body>
+		    <xsl:apply-templates select="data/faq" mode="collapsible" />
+		    <xsl:apply-templates select="data/gallery" mode="slideshow" />
+		    <xsl:apply-templates select="data/gallery" mode="slideshow" />
 		    <xsl:apply-templates select="data/faq" mode="collapsible" />
 			<script src="{$workspace}/assets/dist/js/main.min.js"></script>
 		</body>
