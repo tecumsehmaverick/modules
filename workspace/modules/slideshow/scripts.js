@@ -1,5 +1,5 @@
 /**
-Slideshow module
+Module Slideshow
 =====
 
 The Slideshow module is a very simple slider that will switch between child elements with fade effect.

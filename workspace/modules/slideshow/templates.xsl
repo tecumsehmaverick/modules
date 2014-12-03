@@ -2,13 +2,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <!--
-Name: Module Slideshow
-Version: 0.0.1
-Author: Bernardo Dias (@bernardodiasc)
-URL: https://github.com/bernardodiasc/module-slideshow
-
-Description: This module is a slideshow with auto-play by default, control and navigation
-
 Usage: <xsl:apply-templates select="data/<data-source-handle>" mode="slideshow" />
 
 API (XML):
@@ -26,7 +19,6 @@ API (XML):
         </system-date>
     </entry>
 </gallery>
-
 -->
 
 <xsl:template match="*[section/@handle = 'gallery']" mode="slideshow">
